@@ -2,9 +2,9 @@
 
 Introduction to redux and redux-saga
 
-![Redux flow](/public/redux-flow.png)
+![Redux flow](./public/redux-flow.png)
 
-![Middleware](/public/middleware-everywhere-meme.jpg)
+![Middleware](./public/middleware-everywhere-meme.jpg)
 
 ## Resources
 
