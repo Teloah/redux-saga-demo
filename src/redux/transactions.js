@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import numeral from 'numeral'
 import { createSelector } from 'reselect'
-import { all, fork, takeEvery, put } from 'redux-saga/effects'
+import { all, fork, takeEvery, retry, put } from 'redux-saga/effects'
 
 import { sleep } from '../utils/sleep'
 import { startLoading, endLoading } from './ui'
@@ -84,7 +84,7 @@ function* generateWorker(action) {
     yield sleep(50)
 
     try {
-      const transaction = yield flakyGenerator()
+      const transaction = yield retry(2, 50, flakyGenerator)
       yield put(addTransaction(transaction))
     } catch (e) {
       yield put({ type: 'transactions / FAILED', error: e.message })
