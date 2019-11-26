@@ -36,6 +36,10 @@ The same about Redux-Saga.
 
 - [The best way to test Redux Sagas](https://dev.to/phil/the-best-way-to-test-redux-sagas-4hib)
 
+## Some usecases for sagas
+
+- [David Khourshid - Infinitely Better UIs with Finite Automata](https://www.youtube.com/watch?v=VU1NKX6Qkxc)
+
 ## Further exploration when you're bored
 
 ### Reactive programming with RxJS and redux-observable
