@@ -5,6 +5,7 @@ import { all, fork } from 'redux-saga/effects'
 import transactionsReducer, * as fromTransactions from './transactions'
 import uiReducer, * as fromUI from './ui'
 import * as fromWorkflow from './workflow'
+import * as fromRatings from './ratings'
 
 const reducer = combineReducers({
   transactions: transactionsReducer,
@@ -31,7 +32,11 @@ export function initStore() {
   )
 
   const rootSaga = function*() {
-    yield all([fork(fromTransactions.transactionsRootSaga), fork(fromWorkflow.congratulations)])
+    yield all([
+      fork(fromTransactions.transactionsRootSaga),
+      fork(fromWorkflow.congratulations),
+      fork(fromRatings.ratingsRootSaga)
+    ])
   }
 
   sagaMiddleware.run(rootSaga)
@@ -45,6 +50,7 @@ export const getTransactionsByType = type => ({ transactions }) => {
 export const getTransactionAmountByType = type => ({ transactions }) => {
   return fromTransactions.getTransactionAmountByType(type)(transactions)
 }
+export const getRatings = ({ transactions }) => fromTransactions.getRatings(transactions)
 export const getBestRating = ({ transactions }) => fromTransactions.getBestRating(transactions)
 
 export const getSelected = ({ ui }) => fromUI.getSelected(ui)
