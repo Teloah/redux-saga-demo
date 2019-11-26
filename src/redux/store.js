@@ -48,3 +48,4 @@ export const getTransactionAmountByType = type => ({ transactions }) => {
 }
 
 export const getSelected = ({ ui }) => fromUI.getSelected(ui)
+export const getIsLoading = ({ ui }) => fromUI.getIsLoading(ui)
