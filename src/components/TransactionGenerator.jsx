@@ -1,26 +1,23 @@
 import React from 'react'
-import { Grid, Button, Paper } from '@material-ui/core'
-import { makeStyles } from '@material-ui/core/styles'
+import { Grid, Button } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 
-import { generateTransactions } from '../redux/transactions'
-
-const useStyles = makeStyles(theme => ({
-  paper: {
-    padding: theme.spacing(2),
-    margin: theme.spacing()
-  }
-}))
+import Section from './Section'
+import { generator } from '../utils/generator'
+import { addTransaction, generateTransactions } from '../redux/transactions'
 
 export default function TransactionGenerator() {
-  const classes = useStyles()
   const dispatch = useDispatch()
 
+  const generateTransaction = () => {
+    dispatch(addTransaction(generator()))
+  }
+
   return (
-    <Paper className={classes.paper}>
+    <Section>
       <Grid container justify='center' spacing={4}>
         <Grid item xs={2}>
-          <Button variant='contained' onClick={() => dispatch(generateTransactions(1))}>
+          <Button variant='contained' onClick={generateTransaction}>
             Generate
           </Button>
         </Grid>
@@ -30,6 +27,6 @@ export default function TransactionGenerator() {
           </Button>
         </Grid>
       </Grid>
-    </Paper>
+    </Section>
   )
 }

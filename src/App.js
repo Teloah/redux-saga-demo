@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 
 import TransactionGenerator from './components/TransactionGenerator'
 import Statistics from './components/Statistics'
+import BestRating from './components/BestRating'
 import { initStore } from './redux/store'
 
 const store = initStore()
@@ -21,6 +22,9 @@ function App() {
         </Grid>
         <Grid item xs={10}>
           <Statistics />
+        </Grid>
+        <Grid item xs={10}>
+          <BestRating />
         </Grid>
       </Grid>
     </Provider>
