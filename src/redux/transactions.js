@@ -32,10 +32,10 @@ const createSelectors = type => {
 
   const amountSelector = createSelector(listSelector, list => {
     console.log('recalculating', type)
-    const amnt = list.reduce((result, transaction) => {
+    const amount = list.reduce((result, transaction) => {
       return result + +transaction.amount
     }, 0)
-    return numeral(amnt).format('0.00')
+    return numeral(amount).format('0.00')
   })
 
   return {
