@@ -1,8 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import createSagaMiddleware from 'redux-saga'
+import { all, fork } from 'redux-saga/effects'
 
 import transactionsReducer, * as fromTransactions from './transactions'
 import uiReducer, * as fromUI from './ui'
+import * as fromWorkflow from './workflow'
 
 const reducer = combineReducers({
   transactions: transactionsReducer,
@@ -28,7 +30,11 @@ export function initStore() {
       window.__REDUX_DEVTOOLS_EXTENSION__({ maxAge: 300, trace: true, traceLimit: 25 })
   )
 
-  sagaMiddleware.run(fromTransactions.transactionsRootSaga)
+  const rootSaga = function*() {
+    yield all([fork(fromTransactions.transactionsRootSaga), fork(fromWorkflow.congratulations)])
+  }
+
+  sagaMiddleware.run(rootSaga)
 
   return store
 }
