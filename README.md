@@ -22,6 +22,8 @@ Just some recommended videos, courses and documentation about Redux
 
 - [Reselect](https://github.com/reduxjs/reselect)
 
+- [Flux Standard Action](https://github.com/redux-utilities/flux-standard-action)
+
 - [Boris Dinkevich: Practical Advanced Redux — ReactNext 2017](https://www.youtube.com/watch?v=Gjiu7Lgdg3s)
 
 - [Advanced Redux Patterns - Nir Kaufman @ ReactNYC](https://www.youtube.com/watch?v=JUuic7mEs-s)
