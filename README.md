@@ -40,7 +40,7 @@ The same about Redux-Saga.
 
 ## Some usecases for sagas
 
-- [David Khourshid - Infinitely Better UIs with Finite Automata](https://www.youtube.com/watch?v=VU1NKX6Qkxc)
+- [David Khourshid: Simplifying Complex UIs with Finite Automata & Statecharts | JSConf Iceland 2018](https://www.youtube.com/watch?v=RqTxtOXcv8Y)
 
 ## Further exploration when you're bored
 
